@@ -1,0 +1,162 @@
+:root {
+    /*palette*/
+    --marble-light: #E8E1D9;
+    --marble-gray: #D4D4D4;
+    --marble-veins: #6D6A69;
+    --marble-shadow: #A8A4A2;
+    --dark-stone: #2C2C2C;
+/* colori e ombre extra lasciati per modificare poi*/
+    --background-parchment: #F5E6C4;
+    --background-imperial-green: #5B7553;
+
+    --banner-roman-red: #7D1414;
+    --banner-dark-red: #5C0E0E;
+    --banner-shadow: #3A0A0A;
+
+    --gold-light: #F6E27F;
+    --gold-medium: #D4AF37;
+    --gold-dark: #A67C00;
+    --gold-shadow: #705D28;
+}
+
+body {
+    background: var(--background-imperial-green);
+    font-family: 'Times New Roman', serif;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Due colonne*/
+    gap: 20px; /* Distanza tra le colonne */
+    max-width: 900px;
+    margin: 20px auto;
+}
+@media (max-width: 800px) {
+    main {
+        grid-template-columns: 1fr; /* Una colonna */
+        place-items: center;
+    }
+}
+
+.stendardo {
+    /*background che crea le due linee sopra e sotto*/
+    background: linear-gradient(
+        to bottom, 
+        var(--gold-medium) 8px, 
+        var(--banner-roman-red) 8px, 
+        var(--banner-roman-red) 14px, 
+        var(--gold-medium) 14px, 
+        var(--gold-medium) 15px, 
+        var(--banner-roman-red) 15px,
+        var(--banner-roman-red) calc(100% - 15px), 
+        var(--gold-medium) calc(100% - 15px), 
+        var(--gold-medium) calc(100% - 14px), 
+        var(--banner-roman-red) calc(100% - 14px), 
+        var(--banner-roman-red) calc(100% - 8px), 
+        var(--gold-medium) calc(100% - 8px));      
+    color: var(--gold-medium);
+    padding: 60px 20px;
+        box-shadow: 
+        4px 4px 10px rgba(0, 0, 0, 0.5);
+    width: 300px;
+}
+
+
+.targa {
+    background: var(--marble-gray);
+
+    /* ombreggiatura rilievo */
+    border: 15px ridge   var(--marble-shadow);
+    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.8),
+        4px 4px 10px rgba(0, 0, 0, 0.5);
+
+    outline: 5px outset var(--marble-shadow);
+    outline-offset: -26px; /* Per spostare il bordo interno */
+    border-radius: 3px;
+    padding: 20px;
+    margin: auto 20px;
+    max-width: 450px;
+    min-width: 350px;
+    height: 165px;
+
+    display: flex;
+    justify-content: center; /* Allinea orizzontalmente */
+    align-items: center; /* Allinea verticalmente */
+    
+}
+
+.output {
+    font-size: 2rem;
+    font-weight: bold;
+    color: transparent;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px var(--marble-veins), 
+    -0px -0px 0px var(--marble-light), 2px 2px 2px var(--dark-stone),
+    2px 1px 0px var(--dark-stone)
+    ;
+}
+
+.output-num {
+    font-size: 3rem;
+}
+
+hr {
+    background-color: var(--gold-medium);
+    height: 2px;
+    border: none;
+    margin: 0 15% 0px 15%;
+}
+
+#number {
+    background-color: var(--banner-roman-red);
+    border: 0px;
+    padding: 0px;
+    margin: 20px 0 0 0px;
+    width: 70%;
+    height: 2rem;
+    color: var(--gold-medium);
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    transition: background-color 0.3s ease;
+}
+
+#number:focus {
+    background-color: var(--banner-dark-red);
+    border: none;
+    outline: 1px solid var(--gold-medium);
+}
+
+#number:hover {
+    background-color: var(--banner-dark-red);
+}
+#number::-webkit-outer-spin-button,
+#number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+button {
+    font-family: 'Times New Roman', serif;
+    font-size: 26px;
+    margin: 30px;
+    background-color: var(--banner-roman-red);
+    color: var(--gold-medium);
+    border: 0px;
+    text-transform: uppercase;
+    cursor: pointer; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--gold-medium);
+    color: var(--banner-roman-red)
+}
+
+button:active {
+    background-color: var(--banner-roman-red);
+    color: var(--gold-medium)
+}
